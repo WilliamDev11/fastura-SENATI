@@ -104,8 +104,22 @@ class SaleOpportunityFileController extends Controller
 
     }
 
-    public function download($filename) {
-        return Storage::disk('tenant')->download('sale_opportunity_files'.DIRECTORY_SEPARATOR.$filename);
+ public function download($filename) {
+        try {
+            $filePath = 'sale_opportunity_files' . DIRECTORY_SEPARATOR . $filename;
+    
+            if (!Storage::disk('tenant')->exists($filePath)) {
+                return response()->json([
+                    'message' => 'No se pudo descargar el archivo porque no existe.'
+                ], Response::HTTP_NOT_FOUND);
+            }
+    
+            return Storage::disk('tenant')->download($filePath);
+        } catch (FileNotFoundException $e) {
+            return response()->json([
+                'ERROR' => 'No se pudo descargar el archivo porque no existe.'
+            ], Response::HTTP_NOT_FOUND);
+        }
     }
 
     /**
