@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 use Modules\Sale\Models\SaleOpportunityFile;
 use Illuminate\Support\Facades\Storage;
 use Modules\Finance\Helpers\UploadFileHelper;
+use Symfony\Component\HttpFoundation\Response;
+use League\Flysystem\FileNotFoundException;
 
 class SaleOpportunityFileController extends Controller
 {
