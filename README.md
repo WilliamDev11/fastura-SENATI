@@ -1,6 +1,8 @@
 <img src="icon_pro5.png" width="120">
 
-# **Facturador PRO 5**
+## Proyecto SENATI Practicas pre profesionales en Empresa "Digital Buho SAC"
+
+## A continuación se dan las indicaciones para poder hacer uso del proyecto y poder levantarlo en nuestro sistema, así como los creditos al autor.
 
 
 ## Términos y condiciones del uso de este repositorio
@@ -147,3 +149,11 @@ Validador documentos: [Guía](https://docs.google.com/document/d/1v6XpJrEwCx3suR
 [facturaloperu.com](http://facturaloperu.com "Clic")<br>
 soporte@facturaloperu.com<br>
 wsapp: 930 973 902<br>
+
+## Por mi parte he podido solucionar los errores requeridos por la empresa, como la solución de un error al descargar archivos inexistentes y la redirección automática a un login, en la seccion restaurantes.
+- Errores solucionados :
+## - REDIRECCION A UN LOGIN:
+  Frente a este error, notamos que no tenia alguna linea de autenticación, agregamos un middleware 'auth' para que el sistema detecte que si no estamos logeados al entrar a un enlace, nos rederigirá automáticamente.
+## - ERROR AL DESCARGAR ARCHIVOS INEXISTENTES:
+  En este error lo que hicimos fue agregar un try-catch si es que intentaramos descargar un archivo que no exista en nuestro sistema, si en caso existiera descargaría este archivo, en caso de que no, nos 
+  devolvería un json indicando que el archivo no existe.
